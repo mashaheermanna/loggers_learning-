@@ -10,13 +10,13 @@ const myFormat = printf(({ level, message, label, timestamp }) => {
   return `${timestamp}  ${level}: ${message}`;
 });
 
-export const SomeLoggerMethod = () => {
+export const productionLogger = () => {
   const logger = new createLogger({
-    level: "info",
+    level: "debug",
     format: combine(
-      format.colorize(),
+      // format.colorize(),
       // format.json(),
-      timestamp({ format: "HH:mm:ss" }),
+      timestamp({}),
       myFormat
     ),
     defaultMeta: { service: "user-service" },
@@ -25,14 +25,14 @@ export const SomeLoggerMethod = () => {
 
       //   // - Write all logs with importance level of `error` or higher to `error.log`
       //   //   (i.e., error, fatal, but not other levels)
-      //   new winston.transports.File({ filename: "error.log", level: "error" }),
+      new winston.transports.File({ filename: "error.log", level: "error" }),
 
       //   // - Write all logs with importance level of `info` or higher to `combined.log`
       //   //   (i.e., fatal, error, warn, and info, but not trace)
-      //   new winston.transports.File({ filename: "combined.log" }),
+      new winston.transports.File({ filename: "combined.log" }),
     ],
   });
   return logger;
 };
 
-export default SomeLoggerMethod;
+export default productionLogger;

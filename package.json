@@ -2,6 +2,7 @@
   "name": "loggers_learning-",
   "version": "1.0.0",
   "description": "basics of loggers and its best practices",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

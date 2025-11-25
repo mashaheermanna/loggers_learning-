@@ -5,3 +5,7 @@ combined.log
 error.log
 
 package-lock.json
+
+exception.log
+
+rejections.log
